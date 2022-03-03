@@ -23,6 +23,8 @@ Future Development:
 
 
 3) Worker
+Future Development:  
+- How to call a python file to run and return a value that exists in a different docker container
 
 
 4) Generator
