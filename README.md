@@ -12,11 +12,11 @@ In browser:
 clnodevm056-1.clemson.cloudlab.us:8080   // reference the ssh command from cloudlab and your designated port
 
 Development So Far:
-a) Edited Dockerfile to install Node version 12-slim
+- Edited Dockerfile to install Node version 12-slim
 
 Future Development:
-a) Edit Dockerfile to install MySQL instead of redis
-b) Change out redis factors in webui files to MySQL
+- Edit Dockerfile to install MySQL instead of redis
+- Change out redis factors in webui files to MySQL
 
 
 2) MySQL Database
