@@ -31,8 +31,8 @@ services:
       options:
         gelf-address: udp://localhost:12201
 
-  redis:
-    image: redis
+  mySQL:
+    image: mySQL
     logging:
       driver: gelf
       options:
