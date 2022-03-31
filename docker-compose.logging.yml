@@ -3,7 +3,7 @@ version: "2"
 services:
   
   rng:
-    build: rng
+    build: generator
     ports:
     - "8001:80"
     logging:
