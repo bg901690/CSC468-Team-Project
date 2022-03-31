@@ -19,7 +19,7 @@ services:
     - "./webui/files/:/files/"
 
   redis:
-    image: mysql
+    image: mySQL
 
   worker:
     build: worker
