@@ -14,3 +14,9 @@ Deliverable 2:
    - Hang around alumni weekend to present to people for at least 2 hours gets 5% bonus towards midterm
 
 Both the PDF and slide go onto GitHub repo
+
+Plan of Attack:
+1) create operational generator and hasher (python, ruby, reverse?)
+2) get worker to be able to call generator and hasher to get target hashes and solve them
+3) figure out how to log the successes to MySQL db
+4) craft webui that pulls dynamic data from MySQL db
