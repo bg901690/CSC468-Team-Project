@@ -2,7 +2,7 @@ version: "2"
 
 services:
   rng:
-    build: rng
+    build: generator
     ports:
     - "8001:80"
 
@@ -19,7 +19,7 @@ services:
     - "./webui/files/:/files/"
 
   redis:
-    image: redis
+    image: mysql
 
   worker:
     build: worker
