@@ -35,8 +35,6 @@ kubectl patch service webui --type='json' --patch='[{"op": "replace", "path": "/
 # setup Kubernetes dashboard
 kubectl apply -f dashboard-insecure.yaml
 kubectl apply -f socat.yaml
-kubectl get namespace
-kubectl get svc --namespace=kubernetes-dashboard
 
 # patch it to use port 30082
 kubectl patch service kubernetes-dashboard -n kubernetes-dashboard --type='json' --patch='[{"op": "replace", "path": "/spec/ports/0/nodePort", "value":30082}]'
