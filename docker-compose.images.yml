@@ -1,7 +1,7 @@
 version: "2"
 
 services:
-  rng:
+  generator:
     build: generator
     image: ${REGISTRY_SLASH}rng${COLON_TAG}
     ports:
@@ -22,7 +22,7 @@ services:
     - "./webui/files/:/files/"
 
   redis:
-    image: mySQL
+    image: redis
 
   worker:
     build: worker

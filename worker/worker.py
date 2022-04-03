@@ -1,7 +1,6 @@
 import logging
 import os
-import tarfile
-import mysql.connector
+from redis import Redis
 import requests
 import time
 
@@ -15,15 +14,11 @@ else:
     logging.getLogger("requests").setLevel(logging.WARNING)
 
 
-mydb = mysql.connector.connect(
-  host="localhost",
-  user="yourusername",
-  password="yourpassword"
-)
+redis = Redis("redis")
 
-# edited by Tyler
-def get_target_hash():
-    r = requests.get("http://generator/128")
+
+def get_random_bytes():
+    r = requests.get("http://generator/32")
     return r.content
 
 
@@ -48,17 +43,17 @@ def work_loop(interval=1):
         work_once()
         loops_done += 1
 
-# edited by Tyler for target_hash
+
 def work_once():
     log.debug("Doing one unit of work")
     time.sleep(0.1)
-    target_hash = get_target_hash()
-    hex_hash = hash_bytes(target_hash)
+    random_bytes = get_random_bytes()
+    hex_hash = hash_bytes(random_bytes)
     if not hex_hash.startswith('0'):
         log.debug("No coin found")
         return
     log.info("Coin found: {}...".format(hex_hash[:8]))
-    created = redis.hset("wallet", hex_hash, target_hash)
+    created = redis.hset("wallet", hex_hash, random_bytes)
     if not created:
         log.info("We already had that coin")
 
@@ -71,5 +66,3 @@ if __name__ == "__main__":
             log.exception("In work loop:")
             log.error("Waiting 10s and restarting.")
             time.sleep(10)
-
-
