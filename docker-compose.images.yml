@@ -1,9 +1,9 @@
 version: "3"
 
 services:
-  rng:
-    build: rng
-    image: 127.0.0.1:30000/rng:v0.1
+  generator:
+    build: generator
+    image: 127.0.0.1:30000/generator:v0.1
     deploy:
       mode: global
 

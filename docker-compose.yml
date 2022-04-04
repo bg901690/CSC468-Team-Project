@@ -1,8 +1,8 @@
 version: "2"
 
 services:
-  rng:
-    build: rng
+  generator:
+    build: generator
     ports:
     - "8001:80"
 

@@ -24,20 +24,20 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: rng
+  name: generator
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: rng
+      app: generator
   template:
     metadata:
       labels:
-        app: rng
+        app: generator
     spec:
       containers:
-      - name: rng
-        image: 127.0.0.1:30000/rng:v0.1
+      - name: generator
+        image: 127.0.0.1:30000/generator:v0.1
         ports:
           - name: http-port
             containerPort: 80

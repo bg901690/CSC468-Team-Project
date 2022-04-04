@@ -17,7 +17,7 @@ printf "Chill bro u got 30 seconds..."
 sleep 30 # it's a picky bitch and needs some time
 
 # use docker-compose.images.yml file to build Kubernetes images (objects?)
-# for the GitHub components (webui, worker, hasher, rng)
+# for the GitHub components (webui, worker, hasher, generator)
 docker-compose -f docker-compose.images.yml build
 printf "Now you have a-nutha 30..."
 sleep 30
@@ -25,9 +25,9 @@ docker-compose -f docker-compose.images.yml push
 
 # deploy and expose images
 kubectl create deployment redis --image=redis
-for SERVICE in hasher rng webui worker; do kubectl create deployment $SERVICE --image=127.0.0.2:30000/$SERVICE:v0.1; done
+for SERVICE in hasher generator webui worker; do kubectl create deployment $SERVICE --image=127.0.0.2:30000/$SERVICE:v0.1; done
 kubectl expose deployment redis --port 6379
-kubectl expose deployment rng --port 80
+kubectl expose deployment generator --port 80
 kubectl expose deployment hasher --port 80
 kubectl expose deploy/webui --type=NodePort --port=80
 
