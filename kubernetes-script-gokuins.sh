@@ -20,7 +20,7 @@ sleep 20 # it's a picky bitch and needs some time
 # for the GitHub components (webui, worker, hasher, generator)
 docker-compose -f docker-compose.images.yml build
 printf "Now you have a-nutha 20..."
-sleep 320
+sleep 20
 docker-compose -f docker-compose.images.yml push
 
 # deploy and expose images
