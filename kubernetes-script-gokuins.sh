@@ -13,12 +13,14 @@ kubectl patch service registry --type='json' --patch='[{"op": "replace", "path":
 # clone GitHub repo into our Kubernetes network, cd into the folder
 git clone https://github.com/tylerprehl/CSC468-Team-Project.git
 cd ~/CSC468-Team-Project
+printf "Chill bro u got 30 seconds..."
 sleep 30 # it's a picky bitch and needs some time
 
 # use docker-compose.images.yml file to build Kubernetes images (objects?)
 # for the GitHub components (webui, worker, hasher, generator)
 docker-compose -f docker-compose.images.yml build
-sleep 60
+printf "Now you have a-nutha 30..."
+sleep 30
 docker-compose -f docker-compose.images.yml push
 
 # deploy and expose images
