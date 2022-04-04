@@ -25,7 +25,7 @@ docker-compose -f docker-compose.images.yml push
 
 # deploy and expose images
 kubectl create deployment redis --image=redis
-for SERVICE in hasher generator webui worker; do kubectl create deployment $SERVICE --image=127.0.0.2:30000/$SERVICE:v0.1; done
+for SERVICE in hasher generator webui worker; do kubectl create deployment $SERVICE --image=127.0.0.1:30000/$SERVICE:v0.1; done
 kubectl expose deployment redis --port 6379
 kubectl expose deployment generator --port 80
 kubectl expose deployment hasher --port 80
