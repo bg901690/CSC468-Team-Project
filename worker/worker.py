@@ -18,7 +18,7 @@ redis = Redis("redis")
 
 
 def get_random_bytes():
-    r = requests.get("http://generator/32")
+    r = requests.get("http://rng/32")
     return r.content
 
 
@@ -66,3 +66,5 @@ if __name__ == "__main__":
             log.exception("In work loop:")
             log.error("Waiting 10s and restarting.")
             time.sleep(10)
+
+

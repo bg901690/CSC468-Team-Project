@@ -1,5 +1,5 @@
 FROM python:alpine
 RUN pip install Flask
-COPY generator.py /
-CMD ["python", "generator.py"]
+COPY rng.py /
+CMD ["python", "rng.py"]
 EXPOSE 80
